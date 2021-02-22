@@ -1,6 +1,8 @@
 package com.helcode.catalogo_sinevol.model;
 
-public class itemList {
+import java.io.Serializable;
+
+public class itemList  implements Serializable {
     private String Nombre;
     private  String Descripcion;
     private double precio;

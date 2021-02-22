@@ -42,14 +42,17 @@ initValues();
 
     public List<itemList> getItems(){
     List<itemList>itemLists=new ArrayList<>();
-    itemLists.add(new itemList("hola","descripcion",55.60,R.drawable.images));
-    itemLists.add(new itemList("hola","descripcion",55.60,R.drawable.images));
-    itemLists.add(new itemList("hola","descripcion",55.60,R.drawable.images));
-    itemLists.add(new itemList("hola","descripcion",55.60,R.drawable.images));
-        itemLists.add(new itemList("hola","descripcion",55.60,R.drawable.images));
-        itemLists.add(new itemList("hola","descripcion",55.60,R.drawable.images));
-        itemLists.add(new itemList("hola","descripcion",55.60,R.drawable.images));
-        itemLists.add(new itemList("hola","descripcion",55.60,R.drawable.images));
+    itemLists.add(new itemList("cosmetico","descripcion",55.60,R.drawable.images));
+    itemLists.add(new itemList("lapiz de ceja ","descripcion",55.60,R.drawable.images));
+    itemLists.add(new itemList("oso de peluche","descripcion",55.60,R.drawable.images));
+    itemLists.add(new itemList("lapiz de ceja ","descripcion",55.60,R.drawable.images));
+    itemLists.add(new itemList("lapiz de ceja ","descripcion",55.60,R.drawable.images));
+    itemLists.add(new itemList("tinte kool ","descripcion",55.60,R.drawable.images));
+    itemLists.add(new itemList("tinte kool","descripcion",55.60,R.drawable.images));
+    itemLists.add(new itemList("boby azul","descripcion",55.60,R.drawable.images));
+    itemLists.add(new itemList("tinte kool ","descripcion",55.60,R.drawable.images));
+    itemLists.add(new itemList("tinte kool","descripcion",55.60,R.drawable.images));
+    itemLists.add(new itemList("boby azul","descripcion",55.60,R.drawable.images));
 
     return  itemLists;
 

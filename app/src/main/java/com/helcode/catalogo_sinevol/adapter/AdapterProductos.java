@@ -1,5 +1,6 @@
 package com.helcode.catalogo_sinevol.adapter;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +10,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.helcode.catalogo_sinevol.MainDetalleProducto;
 import com.helcode.catalogo_sinevol.R;
 import com.helcode.catalogo_sinevol.model.itemList;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.RecyclerHolder> {
@@ -34,6 +37,15 @@ private List<itemList> items;
         holder.tvDescripcion.setText(items.get(position).getDescripcion());
         holder.tvPrecio.setText(String.valueOf(items.get(position).getPrecio()));
         holder.image.setImageResource(items.get(position).getImgResouce());
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(holder.itemView.getContext(), MainDetalleProducto.class);
+                intent.putExtra("itemDetail", (Serializable) items);
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
