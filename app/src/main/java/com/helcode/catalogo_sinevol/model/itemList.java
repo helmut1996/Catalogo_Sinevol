@@ -4,12 +4,12 @@ public class itemList {
     private String Nombre;
     private  String Descripcion;
     private double precio;
-    private String imgResouce;
+    private int imgResouce;
 
     public itemList() {
     }
 
-    public itemList(String nombre, String descripcion, double precio, String imgResouce) {
+    public itemList(String nombre, String descripcion, double precio, int imgResouce) {
         Nombre = nombre;
         Descripcion = descripcion;
         this.precio = precio;
@@ -40,11 +40,11 @@ public class itemList {
         this.precio = precio;
     }
 
-    public String getImgResouce() {
+    public int getImgResouce() {
         return imgResouce;
     }
 
-    public void setImgResouce(String imgResouce) {
+    public void setImgResouce(int imgResouce) {
         this.imgResouce = imgResouce;
     }
 }

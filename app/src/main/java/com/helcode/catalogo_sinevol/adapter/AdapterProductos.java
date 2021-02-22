@@ -17,6 +17,10 @@ import java.util.List;
 public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.RecyclerHolder> {
 private List<itemList> items;
 
+    public AdapterProductos(List<itemList> items) {
+        this.items = items;
+    }
+
     @NonNull
     @Override
     public RecyclerHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -26,7 +30,10 @@ private List<itemList> items;
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerHolder holder, int position) {
-
+        holder.tvNombre.setText(items.get(position).getNombre());
+        holder.tvDescripcion.setText(items.get(position).getDescripcion());
+        holder.tvPrecio.setText(String.valueOf(items.get(position).getPrecio()));
+        holder.image.setImageResource(items.get(position).getImgResouce());
     }
 
     @Override
