@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.SearchView;
 
 import com.helcode.catalogo_sinevol.adapter.AdapterProductos;
 import com.helcode.catalogo_sinevol.model.itemList;
@@ -12,8 +14,9 @@ import com.helcode.catalogo_sinevol.model.itemList;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainProductos extends AppCompatActivity {
+public class MainProductos extends AppCompatActivity implements AdapterProductos.RecyclerItemClick, SearchView.OnQueryTextListener {
 RecyclerView listproduct;
+SearchView svSearch;
 List<itemList>items;
 AdapterProductos adapterProductos;
 
@@ -24,11 +27,14 @@ AdapterProductos adapterProductos;
 
 initView();
 initValues();
+initListenner();
 
     }
 
     public void initView(){
         listproduct=findViewById(R.id.RecyclerProducto);
+        svSearch=findViewById(R.id.Buscador);
+
     }
 
     public void initValues(){
@@ -36,8 +42,12 @@ initValues();
         listproduct.setLayoutManager(manager);
 
         items= getItems();
-        adapterProductos= new AdapterProductos(items);
+        adapterProductos= new AdapterProductos(items,this);
         listproduct.setAdapter(adapterProductos);
+    }
+
+    public void initListenner(){
+        svSearch.setOnQueryTextListener(this);
     }
 
     public List<itemList> getItems(){
@@ -56,5 +66,23 @@ initValues();
 
     return  itemLists;
 
+    }
+
+    @Override
+    public void itemClick(itemList item) {
+        Intent intent = new Intent(this, MainDetalleProducto.class);
+        intent.putExtra("itemDetail", item);
+        startActivity(intent);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        adapterProductos.filter(newText);
+        return false;
     }
 }
