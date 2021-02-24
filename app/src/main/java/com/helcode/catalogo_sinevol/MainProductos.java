@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.SearchView;
 
 import com.helcode.catalogo_sinevol.adapter.AdapterProductos;
@@ -19,6 +22,7 @@ RecyclerView listproduct;
 SearchView svSearch;
 List<itemList>items;
 AdapterProductos adapterProductos;
+ImageButton btn_buscador;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +38,7 @@ initListenner();
     public void initView(){
         listproduct=findViewById(R.id.RecyclerProducto);
         svSearch=findViewById(R.id.Buscador);
+        btn_buscador=findViewById(R.id.button);
 
     }
 
@@ -82,7 +87,14 @@ initListenner();
 
     @Override
     public boolean onQueryTextChange(String newText) {
-        adapterProductos.filter(newText);
+        btn_buscador.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adapterProductos.filter(newText);
+            }
+        });
+
+
         return false;
     }
 }

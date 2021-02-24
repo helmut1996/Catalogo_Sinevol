@@ -1,4 +1,4 @@
-package com.helcode.catalogo_sinevol;
+        package com.helcode.catalogo_sinevol;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.Application;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,7 +16,9 @@ import android.widget.TextView;
 import com.github.chrisbanes.photoview.PhotoView;
 import com.helcode.catalogo_sinevol.model.itemList;
 
-public class MainDetalleProducto extends AppCompatActivity {
+import java.io.File;
+
+        public class MainDetalleProducto extends AppCompatActivity {
 TextView NombreDetalle,Descripcion,Precio;
 PhotoView imageView;
 itemList itemDatail;
@@ -24,8 +27,6 @@ itemList itemDatail;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_detalle_producto);
         setTitle("Detalle Producto");
-
-
 
         initView();
         initValues();
@@ -59,7 +60,13 @@ itemList itemDatail;
             ApplicationInfo api = getApplicationContext().getApplicationInfo();
             String apkpath=api.sourceDir;
             Intent intent= new Intent(Intent.ACTION_SEND);
+            intent.setType("application/vnd.android.package-archive");
+            intent.putExtra(intent.EXTRA_STREAM, Uri.fromFile(new File(apkpath)));
+            startActivity(Intent.createChooser(intent,"Compartir en"));
+        }else if(id==R.id.email){
+            Intent intent = new Intent(getApplicationContext(),MainEmail.class);
+            startActivity(intent);
         }
-        return super.onOptionsItemSelected(item);
+        return true;
     }
 }
