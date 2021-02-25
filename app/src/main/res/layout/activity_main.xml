@@ -29,8 +29,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="360dp"
-        android:layout_height="372dp"
+        android:layout_width="351dp"
+        android:layout_height="433dp"
         android:layout_marginTop="40dp"
         android:background="#68FFFFFF"
         android:orientation="vertical"
@@ -60,7 +60,7 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/user2" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/textUser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -104,7 +104,17 @@
             android:layout_marginTop="50dp"
             android:layout_marginRight="15dp"
             android:background="#CDDC39"
-            android:text="sing in" />
+            android:text="iniciar sesion" />
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:background="#CDDC39"
+            android:text="Registrar" />
     </LinearLayout>
 
     <ImageView

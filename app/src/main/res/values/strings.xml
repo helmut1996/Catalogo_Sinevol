@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Catalogo_SINEVOL</string>
+
+    <string-array name="User">
+        <item>Usuario1</item>
+        <item>Usuario</item>
+        <item>Usuario3</item>
+    </string-array>
 </resources>
