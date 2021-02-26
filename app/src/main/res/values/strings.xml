@@ -2,8 +2,9 @@
     <string name="app_name">Catalogo_SINEVOL</string>
 
     <string-array name="User">
-        <item>Usuario1</item>
-        <item>Usuario</item>
-        <item>Usuario3</item>
+        <item>Seleccione usuario</item>
+        <item>Facturacion</item>
+        <item>Vendedor</item>
+        <item>Marlon</item>
     </string-array>
 </resources>
