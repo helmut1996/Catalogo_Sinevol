@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
     Spinner user;
     Button login;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +35,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
         login = findViewById(R.id.btn_Login);
         login.setOnClickListener(this);
 
-        //esta funcio se utiliza para la lista de usuarios
+        //esta funcion se utiliza para la lista de usuarios
         ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.User, android.R.layout.simple_spinner_item);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         user.setAdapter(adapter1);
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity  implements View.OnClickList
 
 
 /*
+para insertar Datos
     private void insertRecords(){
         Usuarios usu = new Usuarios();
         String Users=user.getSelectedItem().toString();
