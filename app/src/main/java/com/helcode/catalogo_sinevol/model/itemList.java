@@ -8,7 +8,7 @@ public class itemList  implements Serializable {
     private double precio;
     private int imgResouce;
 
-    public itemList() {
+    public itemList(String nombre) {
     }
 
     public itemList(String nombre, String descripcion, double precio, int imgResouce) {
