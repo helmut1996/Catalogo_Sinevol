@@ -15,16 +15,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.SearchView;
+import android.widget.Toast;
 
-import com.helcode.catalogo_sinevol.API.APIServices;
-import com.helcode.catalogo_sinevol.BDConexion.DBConnection;
+
+import com.helcode.catalogo_sinevol.API.ApiClienteRetrofit;
+import com.helcode.catalogo_sinevol.API.RetrofitApiServices;
 import com.helcode.catalogo_sinevol.adapter.AdapterProductos;
 
 import com.helcode.catalogo_sinevol.model.itemList;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,9 +39,7 @@ SearchView svSearch;
 List<itemList>items;
 AdapterProductos adapterProductos;
 ImageButton btn_buscador;
-
-private static final String TAG="Productos";
-private Retrofit retrofit;
+private RetrofitApiServices retrofitApi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +50,7 @@ private Retrofit retrofit;
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-///// consumir datos de api con retrofit
-     /*
-        retrofit=new Retrofit.Builder()
-                .baseUrl("https://pokeapi.co/api/v2/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();*/
-        ///// consumir datos de api con retrofit
+
 
 
 
@@ -67,34 +58,7 @@ private Retrofit retrofit;
             initValues();
             initListenner();
     }
-/*
-    private void ObtenerDatos() {
 
-        APIServices services =retrofit.create(APIServices.class);
-        Call<RequestAPI> requestAPICall = services.obtenerListaProducto();
-        requestAPICall.enqueue(new Callback<RequestAPI>() {
-            @Override
-            public void onResponse(Call<RequestAPI> call, Response<RequestAPI> response) {
-                if (response.isSuccessful()){
-                    RequestAPI requestAPI=response.body();
-                    ArrayList<Pokemon>lists_producto =requestAPI.getResults();
-                    for (int i =0; i<lists_producto.size();i++){
-                        Pokemon item= lists_producto.get(i);
-                        Log.e(TAG,"POKEMON;"+ item.getName());
-                    }
-                }else{
-                    Log.e(TAG,"Respuesta;"+ response.body());
-                }
-            }
-
-            @Override
-            public void onFailure(Call<RequestAPI> call, Throwable t) {
-                Log.e(TAG,"Error:"+ t.getMessage());
-            }
-        });
-    }
-
- */
     public void initView(){
         listproduct=findViewById(R.id.RecyclerProducto);
         svSearch=findViewById(R.id.Buscador);
@@ -103,44 +67,24 @@ private Retrofit retrofit;
     }
 
     public void initValues(){
+        retrofitApi= ApiClienteRetrofit.getApiService();
         LinearLayoutManager manager = new LinearLayoutManager(this);
         listproduct.setLayoutManager(manager);
 
-        items= getItems();
-        adapterProductos= new AdapterProductos(items,this);
-        listproduct.setAdapter(adapterProductos);
+        getItemsMySQL();
+
+
     }
 
     public void initListenner(){
         svSearch.setOnQueryTextListener(this);
     }
 
-
+/*
     public List<itemList> getItems(){
     List<itemList>itemLists=new ArrayList<>();
 
-        DBConnection dbConnection = new DBConnection();
-        dbConnection.conectar();
 
-        try {
-
-            Statement st = dbConnection.getConnection().createStatement();
-            ResultSet rs = st.executeQuery("Select Nombre,Unidad_Med,PrecioC from inventario");
-            while (rs.next()){
-            itemLists.add(new itemList(
-                    rs.getString("Nombre"),
-                    rs.getString("Unidad_Med"),
-                    rs.getDouble("PrecioC"),
-                    R.drawable.images
-                    ));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
-
-    /*
     itemLists.add(new itemList("cosmetico","descripcion",55.60,R.drawable.images));
     itemLists.add(new itemList("lapiz de ceja ","descripcion",55.60,R.drawable.images));
     itemLists.add(new itemList("oso de peluche","descripcion",55.60,R.drawable.images));
@@ -153,10 +97,26 @@ private Retrofit retrofit;
     itemLists.add(new itemList("tinte kool","descripcion",55.60,R.drawable.images));
     itemLists.add(new itemList("boby azul","descripcion",55.60,R.drawable.images));
 
-
-     */
     return  itemLists;
 
+    }
+
+ */
+    private void getItemsMySQL(){
+        retrofitApi.getItemBD().enqueue(new Callback<List<itemList>>() {
+            @Override
+            public void onResponse(Call<List<itemList>> call, Response<List<itemList>> response) {
+                items= response.body();
+                adapterProductos= new AdapterProductos(items,MainProductos.this);
+                listproduct.setAdapter(adapterProductos);
+            }
+
+            @Override
+            public void onFailure(Call<List<itemList>> call, Throwable t) {
+                Toast.makeText(getApplicationContext(),"Error"+t.getMessage(),Toast.LENGTH_SHORT).show();
+                System.out.println("Error de conexion "+t.getMessage());
+            }
+        });
     }
 
     @Override

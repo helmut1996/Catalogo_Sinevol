@@ -14,7 +14,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Catalogo_SINEVOL">
+        android:theme="@style/Theme.Catalogo_SINEVOL"
+        android:networkSecurityConfig="@xml/network_segurity_config"
+        android:usesCleartextTraffic="true"
+        >
         <activity android:name=".MainRegistrar"></activity>
         <activity android:name=".MainEmail" />
         <activity android:name=".MainDetalleProducto" />
