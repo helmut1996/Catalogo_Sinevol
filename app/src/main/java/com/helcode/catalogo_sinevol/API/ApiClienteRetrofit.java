@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClienteRetrofit {
     private static Retrofit retrofit=null;
-    private static String URL_BASE="http://192.168.0.17:8000/";
+    private static String URL_BASE="https://marnor.herokuapp.com/";
 
     public static  RetrofitApiServices getApiService(){
         if (retrofit==null){

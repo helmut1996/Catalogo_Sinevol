@@ -102,11 +102,13 @@ private RetrofitApiServices retrofitApi;
     }
 
  */
+
+
     private void getItemsMySQL(){
         retrofitApi.getItemBD().enqueue(new Callback<List<itemList>>() {
             @Override
             public void onResponse(Call<List<itemList>> call, Response<List<itemList>> response) {
-                items= response.body();
+                items=response.body();
                 adapterProductos= new AdapterProductos(items,MainProductos.this);
                 listproduct.setAdapter(adapterProductos);
             }
@@ -118,6 +120,11 @@ private RetrofitApiServices retrofitApi;
             }
         });
     }
+
+
+
+
+
 
     @Override
     public void itemClick(itemList item) {

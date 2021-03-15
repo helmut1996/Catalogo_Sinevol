@@ -8,6 +8,6 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 
 public interface RetrofitApiServices {
-    @GET("/inventario")
+    @GET("inventario")
     Call<List<itemList>>getItemBD();
 }

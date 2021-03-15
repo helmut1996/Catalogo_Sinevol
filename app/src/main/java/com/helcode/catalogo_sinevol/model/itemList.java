@@ -1,11 +1,17 @@
 package com.helcode.catalogo_sinevol.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.io.Serializable;
 
 public class itemList  implements Serializable {
+    @SerializedName("Nombre")
     private String Nombre;
+    @SerializedName("Presentacion")
     private  String Presentacion;
+    @SerializedName("PrecioC")
     private double PrecioC;
+    @SerializedName("Imagen")
     private String Imagen;
 
 
