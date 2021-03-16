@@ -12,14 +12,16 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.SearchView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.helcode.catalogo_sinevol.API.APIClient;
+import com.helcode.catalogo_sinevol.API.InterfaceAPI;
 import com.helcode.catalogo_sinevol.adapter.AdapterProductos;
 
 import com.helcode.catalogo_sinevol.model.itemList;
@@ -29,6 +31,7 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
+import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -39,6 +42,7 @@ List<itemList>items;
 TextView prueba;
 AdapterProductos adapterProductos;
 ImageButton btn_buscador;
+private InterfaceAPI api;
 
 private static final String TAG="Productos";
 private Retrofit retrofit;
@@ -77,6 +81,7 @@ private Retrofit retrofit;
 
 
     public void initView(){
+
         prueba=findViewById(R.id.textprueba);
         listproduct=findViewById(R.id.RecyclerProducto);
         svSearch=findViewById(R.id.Buscador);
@@ -85,19 +90,21 @@ private Retrofit retrofit;
     }
 
     public void initValues(){
+        api= APIClient.getProductos();
         LinearLayoutManager manager = new LinearLayoutManager(this);
         listproduct.setLayoutManager(manager);
 
-        items= getItems();
-        adapterProductos= new AdapterProductos(items,this);
-        listproduct.setAdapter(adapterProductos);
+       // items= getItems();
+
+       // adapterProductos= new AdapterProductos(items,this);
+        //listproduct.setAdapter(adapterProductos);
+        getItemsSQL();
     }
 
     public void initListenner(){
         svSearch.setOnQueryTextListener(this);
     }
-
-    public List<itemList> getItems(){
+/* public List<itemList> getItems(){
     List<itemList>itemLists=new ArrayList<>();
     itemLists.add(new itemList("cosmetico","descripcion",55.60,R.drawable.images));
     itemLists.add(new itemList("lapiz de ceja ","descripcion",55.60,R.drawable.images));
@@ -113,8 +120,26 @@ private Retrofit retrofit;
 
     return  itemLists;
 
-    }
+    } */
 
+
+public void getItemsSQL(){
+    api.getItemBD().enqueue(new Callback<List<itemList>>() {
+        @Override
+        public void onResponse(Call<List<itemList>> call, Response<List<itemList>> response) {
+
+            items= response.body();
+             adapterProductos= new AdapterProductos(items,MainProductos.this);
+            listproduct.setAdapter(adapterProductos);
+        }
+
+        @Override
+        public void onFailure(Call<List<itemList>> call, Throwable t) {
+            Toast.makeText(getApplicationContext(),"Error"+t.getMessage(),Toast.LENGTH_LONG).show();
+            System.out.println("Error:=====>"+t.getMessage());
+        }
+    });
+}
     @Override
     public void itemClick(itemList item) {
         Intent intent = new Intent(this, MainDetalleProducto.class);

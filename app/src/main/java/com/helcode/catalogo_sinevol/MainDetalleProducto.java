@@ -41,7 +41,7 @@ itemList itemDatail;
 
     public void initValues(){
         itemDatail= (itemList) getIntent().getExtras().getSerializable("itemDetail");
-        imageView.setImageResource(itemDatail.getImagen());
+       //imageView.setImageResource(itemDatail.getImagen());
         NombreDetalle.setText(itemDatail.getNombre());
         Descripcion.setText(itemDatail.getMarca());
         Precio.setText(String.valueOf( itemDatail.getPrecioC()));

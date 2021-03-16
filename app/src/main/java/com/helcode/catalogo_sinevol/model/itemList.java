@@ -6,12 +6,12 @@ public class itemList  implements Serializable {
     private String Nombre;
     private String Marca;
     private double PrecioC;
-    private int Imagen;
+    private String Imagen;
 
     public itemList() {
     }
 
-    public itemList(String nombre, String marca, double precioC, int imagen) {
+    public itemList(String nombre, String marca, double precioC, String imagen) {
         Nombre = nombre;
         Marca = marca;
         PrecioC = precioC;
@@ -42,11 +42,11 @@ public class itemList  implements Serializable {
         PrecioC = precioC;
     }
 
-    public int getImagen() {
+    public String getImagen() {
         return Imagen;
     }
 
-    public void setImagen(int imagen) {
+    public void setImagen(String imagen) {
         Imagen = imagen;
     }
 }

@@ -4,10 +4,10 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIClient {
-    public static final String  BASE_URL="https://marnor.herokuapp.com/";
+    public static final String  BASE_URL="https://marnor.herokuapp.com/api/";
     public static Retrofit retrofit;
 
-    public static Retrofit getProductos(){
+    public static InterfaceAPI getProductos(){
 
         if (retrofit==null){
             retrofit = new Retrofit.Builder()
@@ -16,7 +16,7 @@ public class APIClient {
                     .build();
         }
 
-        return retrofit;
+        return retrofit.create(InterfaceAPI.class);
     }
 
 }

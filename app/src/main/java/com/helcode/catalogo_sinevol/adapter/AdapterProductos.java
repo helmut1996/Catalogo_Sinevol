@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.helcode.catalogo_sinevol.MainDetalleProducto;
 import com.helcode.catalogo_sinevol.R;
 import com.helcode.catalogo_sinevol.model.itemList;
+import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -45,6 +46,7 @@ private RecyclerItemClick itemClick;
             holder.tvNombre.setText(item.getNombre());
             holder.tvDescripcion.setText(item.getMarca());
             holder.tvPrecio.setText(String.valueOf( item.getPrecioC()));
+
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
