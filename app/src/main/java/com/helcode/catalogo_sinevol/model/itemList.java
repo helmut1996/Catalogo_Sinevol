@@ -4,18 +4,18 @@ import java.io.Serializable;
 
 public class itemList  implements Serializable {
     private String Nombre;
-    private  String Descripcion;
-    private double precio;
-    private int imgResouce;
+    private String Marca;
+    private double PrecioC;
+    private int Imagen;
 
     public itemList() {
     }
 
-    public itemList(String nombre, String descripcion, double precio, int imgResouce) {
+    public itemList(String nombre, String marca, double precioC, int imagen) {
         Nombre = nombre;
-        Descripcion = descripcion;
-        this.precio = precio;
-        this.imgResouce = imgResouce;
+        Marca = marca;
+        PrecioC = precioC;
+        Imagen = imagen;
     }
 
     public String getNombre() {
@@ -26,27 +26,28 @@ public class itemList  implements Serializable {
         Nombre = nombre;
     }
 
-    public String getDescripcion() {
-        return Descripcion;
+    public String getMarca() {
+        return Marca;
     }
 
-    public void setDescripcion(String descripcion) {
-        Descripcion = descripcion;
+    public void setMarca(String marca) {
+        Marca = marca;
     }
 
-    public double getPrecio() {
-        return precio;
+    public double getPrecioC() {
+        return PrecioC;
     }
 
-    public void setPrecio(double precio) {
-        this.precio = precio;
+    public void setPrecioC(double precioC) {
+        PrecioC = precioC;
     }
 
-    public int getImgResouce() {
-        return imgResouce;
+    public int getImagen() {
+        return Imagen;
     }
 
-    public void setImgResouce(int imgResouce) {
-        this.imgResouce = imgResouce;
+    public void setImagen(int imagen) {
+        Imagen = imagen;
     }
 }
+

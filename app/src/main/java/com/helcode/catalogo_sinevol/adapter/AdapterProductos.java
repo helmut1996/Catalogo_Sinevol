@@ -43,8 +43,8 @@ private RecyclerItemClick itemClick;
     public void onBindViewHolder(@NonNull RecyclerHolder holder, int position) {
             final itemList item= items.get(position);
             holder.tvNombre.setText(item.getNombre());
-            holder.tvDescripcion.setText(item.getDescripcion());
-            holder.tvPrecio.setText(String.valueOf( item.getPrecio()));
+            holder.tvDescripcion.setText(item.getMarca());
+            holder.tvPrecio.setText(String.valueOf( item.getPrecioC()));
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
