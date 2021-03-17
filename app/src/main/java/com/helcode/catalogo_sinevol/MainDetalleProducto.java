@@ -1,10 +1,12 @@
-        package com.helcode.catalogo_sinevol;
+package com.helcode.catalogo_sinevol;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,24 +14,33 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.chrisbanes.photoview.PhotoView;
 import com.helcode.catalogo_sinevol.model.itemList;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 
         public class MainDetalleProducto extends AppCompatActivity {
-TextView NombreDetalle,Descripcion,Precio;
+TextView NombreDetalle,Descripcion,Precio,imagenes;
 PhotoView imageView;
 itemList itemDatail;
-    @Override
+String imagen="http://ferreteriaelcarpintero.com/images/productos/";
+//String username=getFromSharedPreferences("username");
+
+
+
+            @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_detalle_producto);
         setTitle("Detalle Producto");
 
+
         initView();
         initValues();
+
     }
 
     public void initView(){
@@ -37,11 +48,16 @@ itemList itemDatail;
     Descripcion=findViewById(R.id.DescripcionDetalle);
     Precio=findViewById(R.id.PrecioDetalle);
     imageView = findViewById(R.id.imageDetalle);
+    imagenes=findViewById(R.id.TextImagen);
     }
 
     public void initValues(){
         itemDatail= (itemList) getIntent().getExtras().getSerializable("itemDetail");
-       //imageView.setImageResource(itemDatail.getImagen());
+        Picasso.get().load(imagen+itemDatail.getImagen())
+                .error(R.drawable.error)
+                .into(imageView);
+
+        imagenes.setText(itemDatail.getImagen());
         NombreDetalle.setText(itemDatail.getNombre());
         Descripcion.setText(itemDatail.getMarca());
         Precio.setText(String.valueOf( itemDatail.getPrecioC()));
@@ -69,4 +85,13 @@ itemList itemDatail;
         }
         return true;
     }
+
+/*
+            private String getFromSharedPreferences(String key) {
+                SharedPreferences sharedPref=getSharedPreferences("login_preferences",Context.MODE_PRIVATE);
+                return sharedPref.getString(key,"");
+            }
+
+
+ */
 }

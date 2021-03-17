@@ -1,12 +1,22 @@
 package com.helcode.catalogo_sinevol;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -26,6 +36,7 @@ import com.helcode.catalogo_sinevol.adapter.AdapterProductos;
 
 import com.helcode.catalogo_sinevol.model.itemList;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,30 +64,15 @@ private Retrofit retrofit;
         setContentView(R.layout.activity_main_productos);
 
 
-
+/////////////////////////////////Metodo para permisos de las imagenes/////////////////////////////////////////////
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            //Verifica permisos para Android 6.0+
+            checkExternalStoragePermission(); }
 
             initView();
             initValues();
             initListenner();
 
-            //IMPLEMENTANDO VOLLEY PARA LLAMAR LOS DATOS
-  /*
-        RequestQueue queue= Volley.newRequestQueue(this);
-        String URL="https://marnor.herokuapp.com/inventario";
-        StringRequest stringRequest=new StringRequest(Request.Method.GET, URL, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                prueba.setText("Respuesta:"+response);
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                prueba.setText("ERROR DE CONEXION A LA API");
-            }
-        });
-        queue.add(stringRequest);
-
-   */
     }
 
 
@@ -163,5 +159,33 @@ public void getItemsSQL(){
 
 
         return false;
+    }
+
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.login,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id= item.getItemId();
+        if (id==R.id.exit){
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        return true;
+    }
+
+    private void checkExternalStoragePermission() {
+        int permissionCheck = ContextCompat.checkSelfPermission(
+                this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+            Log.i("Mensaje", "No se tiene permiso para leer.");
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 225);
+        } else {
+            Log.i("Mensaje", "Se tiene permiso para leer!");
+        }
     }
 }

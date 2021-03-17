@@ -25,6 +25,7 @@ public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.Recy
 private List<itemList> items;
 private List<itemList>originalItems;
 private RecyclerItemClick itemClick;
+private String URL_IMAGE="http://ferreteriaelcarpintero.com/images/productos/";
 
     public AdapterProductos(List<itemList> items,RecyclerItemClick itemClick) {
         this.items = items;
@@ -46,6 +47,10 @@ private RecyclerItemClick itemClick;
             holder.tvNombre.setText(item.getNombre());
             holder.tvDescripcion.setText(item.getMarca());
             holder.tvPrecio.setText(String.valueOf( item.getPrecioC()));
+            holder.tvimagen.setText(item.getImagen());
+            Picasso.get().load(URL_IMAGE+item.getImagen())
+                    .error(R.drawable.error)
+                    .into(holder.image);
 
 
 
@@ -93,13 +98,14 @@ private RecyclerItemClick itemClick;
     }
     public static class RecyclerHolder extends RecyclerView.ViewHolder{
 
-        TextView tvNombre,tvDescripcion,tvPrecio;
+        TextView tvNombre,tvDescripcion,tvPrecio,tvimagen;
         ImageView image;
         public RecyclerHolder(@NonNull View itemView) {
             super(itemView);
             tvNombre=itemView.findViewById(R.id.NombreProducto);
             tvDescripcion=itemView.findViewById(R.id.Descripcion);
             tvPrecio=itemView.findViewById(R.id.precio);
+            tvimagen=itemView.findViewById(R.id.textimagen);
             image=itemView.findViewById(R.id.imagen);
         }
     }

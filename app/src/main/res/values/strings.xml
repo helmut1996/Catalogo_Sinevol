@@ -7,4 +7,7 @@
         <item>Vendedor</item>
         <item>Marlon</item>
     </string-array>
+    <string name="mensaje">Contraseña incorrecta</string>
+    <string name="value_user">debe seleccionar un usuario</string>
+    <string name="value_pass_isemty">campo vacio de contraseña</string>
 </resources>

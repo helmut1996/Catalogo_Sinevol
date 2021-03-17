@@ -2,7 +2,10 @@ package com.helcode.catalogo_sinevol;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -19,7 +22,7 @@ import com.helcode.catalogo_sinevol.Entity.Usuarios;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity  implements View.OnClickListener {
+public class MainActivity extends Activity implements View.OnClickListener {
     EditText passw;
     Spinner user;
     Button login;
@@ -61,33 +64,57 @@ para insertar Datos
 
 
  */
-public void  login(){
+
+/*public void  login(){
     Usuarios.find(Usuarios.class, "nombre_usuario = ? and password = ?", user.getSelectedItem().toString(), passw.getText().toString());
 
-}
+} */
     @Override
     public void onClick(View view) {
 
+        String username=user.getSelectedItem().toString();
+        String password=passw.getText().toString();
         switch (view.getId()) {
 
             case R.id.btn_Login:
                 if (user.getSelectedItemPosition()==0){
-                    Toast.makeText(this,"Debes de seleccionar un usuario",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this,R.string.value_user,Toast.LENGTH_SHORT).show();
                 }else if (passw.getText().toString().isEmpty()){
-                    Toast.makeText(this,"debes ingresar una contraseña",Toast.LENGTH_SHORT).show();
-                }else {
-                      login();
-                     Intent intent = new Intent(getApplicationContext(), MainProductos.class);
+                    Toast.makeText(this,R.string.value_pass_isemty,Toast.LENGTH_SHORT).show();
+                }else if(username.equals("Facturacion") && password.equals("prueba1")){
+    //                saveLoginSharedPrefences(username);
+                    finish();
+                    Intent intent = new Intent(getApplicationContext(), MainProductos.class);
                     startActivity(intent);
-                }
-              //  insertRecords();
+                }else if(username.equals("Vendedor") && password.equals("vendedor1")){
+   //                  saveLoginSharedPrefences(username);
+                    Intent intent = new Intent(getApplicationContext(), MainProductos.class);
+                    startActivity(intent);
+                    finish();
+                }else if(username.equals("Marlon") && password.equals("marlon1")){
+  //                    saveLoginSharedPrefences(username);
+                    Intent intent = new Intent(getApplicationContext(), MainProductos.class);
+                    startActivity(intent);
+                    finish();
+                } else{
+                    Toast.makeText(this,R.string.mensaje,Toast.LENGTH_SHORT).show();
 
+                }
                 break;
 
         }
 
     }
+/*
+    private void saveLoginSharedPrefences(String username) {
+        SharedPreferences sharedPref=getSharedPreferences("login_preferences",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPref.edit();
+        editor.putString("username",username);
+        editor.apply();
+    }
 
+
+ */
 
 }
 

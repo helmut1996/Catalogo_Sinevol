@@ -47,6 +47,14 @@
                 android:textStyle="bold"
                 android:id="@+id/precio"
                 android:layout_gravity="end"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="imagen"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:id="@+id/textimagen"
+                android:layout_gravity="end"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
