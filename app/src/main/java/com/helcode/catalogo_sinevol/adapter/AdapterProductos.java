@@ -50,7 +50,9 @@ private String URL_IMAGE="http://ferreteriaelcarpintero.com/images/productos/";
             holder.tvimagen.setText(item.getPresentacion());
             holder.tvunidad_medida.setText(item.getUnidad_Med());
             holder.tvcodigo.setText(item.getCodigo());
-        holder.tvprecio_d.setText(String.valueOf(item.getPrecioD()));
+            holder.tvexistencia.setText(String.valueOf(item.getExistencia()));
+            holder.tvestado.setText(item.getEstado());
+            holder.tvprecio_d.setText(String.valueOf(item.getPrecioD()));
             Picasso.get().load(URL_IMAGE+item.getImagen())
                     .error(R.drawable.error)
                     .into(holder.image);
@@ -101,7 +103,7 @@ private String URL_IMAGE="http://ferreteriaelcarpintero.com/images/productos/";
     }
     public static class RecyclerHolder extends RecyclerView.ViewHolder{
 
-        TextView tvNombre,tvDescripcion,tvPrecio,tvimagen,tvunidad_medida,tvcodigo,tvprecio_d;
+        TextView tvNombre,tvDescripcion,tvPrecio,tvimagen,tvunidad_medida,tvcodigo,tvprecio_d,tvexistencia,tvestado;
         ImageView image;
         public RecyclerHolder(@NonNull View itemView) {
             super(itemView);
@@ -113,6 +115,8 @@ private String URL_IMAGE="http://ferreteriaelcarpintero.com/images/productos/";
             tvunidad_medida=itemView.findViewById(R.id.unidad_medida);
             tvcodigo=itemView.findViewById(R.id.CodigoProducto);
             tvprecio_d=itemView.findViewById(R.id.precio_D);
+            tvexistencia =itemView.findViewById(R.id.Existencia);
+            tvestado=itemView.findViewById(R.id.Estado);
         }
     }
 

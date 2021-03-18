@@ -13,12 +13,21 @@
         android:padding="10dp"
         android:orientation="horizontal">
         <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/check"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/ic_baseline_check_circle"
+            android:visibility="gone"/>
+        <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/images"
             android:scaleType="centerCrop"
             android:layout_marginRight="10dp"
             android:id="@+id/imagen"/>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -113,14 +122,17 @@
                     android:textSize="16dp"
                     android:textStyle="bold" />
             </LinearLayout>
+
             <TextView
                 android:id="@+id/Estado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Estado"
                 android:gravity="center"
+                android:text="Estado"
                 android:textSize="16sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:visibility="gone"/>
+
             <TextView
                 android:id="@+id/Existencia"
                 android:layout_width="match_parent"
@@ -128,7 +140,8 @@
                 android:text="Existencia"
                 android:gravity="center"
                 android:textSize="16sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:visibility="gone"/>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

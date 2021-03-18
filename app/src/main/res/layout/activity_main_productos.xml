@@ -15,11 +15,12 @@
         android:textSize="16sp"
         android:layout_gravity="center"
         android:gravity="center"
-        android:visibility="gone"/>
+       />
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:layout_marginBottom="15dp">
 
     <SearchView
         android:id="@+id/Buscador"
@@ -45,6 +46,16 @@
        android:src="@drawable/ic_search" />
 
 </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="seleccionado 0"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:id="@+id/tv_emty"
+        android:visibility="gone"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerProducto"

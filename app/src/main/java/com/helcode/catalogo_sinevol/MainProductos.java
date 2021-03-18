@@ -24,12 +24,6 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.helcode.catalogo_sinevol.API.APIClient;
 import com.helcode.catalogo_sinevol.API.InterfaceAPI;
 import com.helcode.catalogo_sinevol.adapter.AdapterProductos;
@@ -50,12 +44,12 @@ public class MainProductos extends AppCompatActivity implements AdapterProductos
 RecyclerView listproduct;
 SearchView svSearch;
 List<itemList>items;
-TextView prueba;
+TextView prueba,vacio;
 AdapterProductos adapterProductos;
 ImageButton btn_buscador;
 private InterfaceAPI api;
 
-private static final String TAG="Productos";
+public static  String USERS;
 private Retrofit retrofit;
 
     @Override
@@ -64,11 +58,11 @@ private Retrofit retrofit;
         setContentView(R.layout.activity_main_productos);
 
 
-/////////////////////////////////Metodo para permisos de las imagenes/////////////////////////////////////////////
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-            //Verifica permisos para Android 6.0+
-            checkExternalStoragePermission(); }
-
+        Bundle extra = getIntent().getExtras();
+        if (extra != null) {
+            USERS = extra.getString("Usuario");
+           // prueba.setText(extra.getString("Usuario"));
+        }
             initView();
             initValues();
             initListenner();
@@ -79,6 +73,7 @@ private Retrofit retrofit;
     public void initView(){
 
         prueba=findViewById(R.id.textprueba);
+        vacio=findViewById(R.id.tv_emty);
         listproduct=findViewById(R.id.RecyclerProducto);
         svSearch=findViewById(R.id.Buscador);
         btn_buscador=findViewById(R.id.button);
@@ -178,14 +173,4 @@ public void getItemsSQL(){
         return true;
     }
 
-    private void checkExternalStoragePermission() {
-        int permissionCheck = ContextCompat.checkSelfPermission(
-                this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-            Log.i("Mensaje", "No se tiene permiso para leer.");
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 225);
-        } else {
-            Log.i("Mensaje", "Se tiene permiso para leer!");
-        }
-    }
 }
