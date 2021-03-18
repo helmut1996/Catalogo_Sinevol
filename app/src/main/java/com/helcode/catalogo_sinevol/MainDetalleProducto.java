@@ -23,9 +23,9 @@ import com.squareup.picasso.Picasso;
 import java.io.File;
 
         public class MainDetalleProducto extends AppCompatActivity {
-TextView NombreDetalle,Descripcion,Precio,imagenes;
-PhotoView imageView;
-itemList itemDatail;
+private TextView NombreDetalle,Descripcion,Precio,codigo,PrecioD;
+private PhotoView imageView;
+private itemList itemDatail;
 String imagen="http://ferreteriaelcarpintero.com/images/productos/";
 //String username=getFromSharedPreferences("username");
 
@@ -48,7 +48,8 @@ String imagen="http://ferreteriaelcarpintero.com/images/productos/";
     Descripcion=findViewById(R.id.DescripcionDetalle);
     Precio=findViewById(R.id.PrecioDetalle);
     imageView = findViewById(R.id.imageDetalle);
-    imagenes=findViewById(R.id.TextImagen);
+    codigo=findViewById(R.id.TextImagen);
+    PrecioD=findViewById(R.id.PrecioDolarDetalle);
     }
 
     public void initValues(){
@@ -57,10 +58,11 @@ String imagen="http://ferreteriaelcarpintero.com/images/productos/";
                 .error(R.drawable.error)
                 .into(imageView);
 
-        imagenes.setText(itemDatail.getImagen());
+        codigo.setText(itemDatail.getCodigo());
         NombreDetalle.setText(itemDatail.getNombre());
         Descripcion.setText(itemDatail.getMarca());
         Precio.setText(String.valueOf( itemDatail.getPrecioC()));
+        PrecioD.setText(String.valueOf( itemDatail.getPrecioD()));
     }
 
     @Override

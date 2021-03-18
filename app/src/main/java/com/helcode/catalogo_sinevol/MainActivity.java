@@ -23,9 +23,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends Activity implements View.OnClickListener {
-    EditText passw;
-    Spinner user;
-    Button login;
+   private EditText passw;
+   private Spinner user;
+   private Button login;
 
 
     @Override

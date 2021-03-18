@@ -12,10 +12,12 @@ itemList  implements Serializable {
     private String Codigo;
     private String Unidad_Med;
     private String Presentacion;
+    private int Existencia;
+    private String Estado;
     public itemList() {
     }
 
-    public itemList(String nombre, String marca, double precioC, double precioD, String imagen, String codigo, String unidad_Med, String presentacion) {
+    public itemList(String nombre, String marca, double precioC, double precioD, String imagen, String codigo, String unidad_Med, String presentacion, int existencia, String estado) {
         Nombre = nombre;
         Marca = marca;
         PrecioC = precioC;
@@ -24,6 +26,8 @@ itemList  implements Serializable {
         Codigo = codigo;
         Unidad_Med = unidad_Med;
         Presentacion = presentacion;
+        Existencia = existencia;
+        Estado = estado;
     }
 
     public String getNombre() {
@@ -88,6 +92,22 @@ itemList  implements Serializable {
 
     public void setPresentacion(String presentacion) {
         Presentacion = presentacion;
+    }
+
+    public int getExistencia() {
+        return Existencia;
+    }
+
+    public void setExistencia(int existencia) {
+        Existencia = existencia;
+    }
+
+    public String getEstado() {
+        return Estado;
+    }
+
+    public void setEstado(String estado) {
+        Estado = estado;
     }
 }
 
