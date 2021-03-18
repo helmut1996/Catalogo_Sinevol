@@ -1,25 +1,21 @@
 package com.helcode.catalogo_sinevol.model;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
 
 public class itemList  implements Serializable {
-    @SerializedName("Nombre")
     private String Nombre;
-    @SerializedName("Presentacion")
-    private  String Presentacion;
-    @SerializedName("PrecioC")
-    private double PrecioC;
-    @SerializedName("Imagen")
-    private String Imagen;
+    private  String Descripcion;
+    private double precio;
+    private int imgResouce;
 
+    public itemList() {
+    }
 
-    public itemList(String nombre, String presentacion, double precioC, String imagen) {
+    public itemList(String nombre, String descripcion, double precio, int imgResouce) {
         Nombre = nombre;
-        Presentacion = presentacion;
-        PrecioC = precioC;
-        Imagen = imagen;
+        Descripcion = descripcion;
+        this.precio = precio;
+        this.imgResouce = imgResouce;
     }
 
     public String getNombre() {
@@ -30,27 +26,27 @@ public class itemList  implements Serializable {
         Nombre = nombre;
     }
 
-    public String getPresentacion() {
-        return Presentacion;
+    public String getDescripcion() {
+        return Descripcion;
     }
 
-    public void setPresentacion(String presentacion) {
-        Presentacion = presentacion;
+    public void setDescripcion(String descripcion) {
+        Descripcion = descripcion;
     }
 
-    public double getPrecioC() {
-        return PrecioC;
+    public double getPrecio() {
+        return precio;
     }
 
-    public void setPrecioC(double precioC) {
-        PrecioC = precioC;
+    public void setPrecio(double precio) {
+        this.precio = precio;
     }
 
-    public String getImagen() {
-        return Imagen;
+    public int getImgResouce() {
+        return imgResouce;
     }
 
-    public void setImagen(String imagen) {
-        Imagen = imagen;
+    public void setImgResouce(int imgResouce) {
+        this.imgResouce = imgResouce;
     }
 }

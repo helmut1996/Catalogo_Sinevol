@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.helcode.catalogo_sinevol.MainDetalleProducto;
 import com.helcode.catalogo_sinevol.R;
 import com.helcode.catalogo_sinevol.model.itemList;
-import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -25,8 +24,6 @@ public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.Recy
 private List<itemList> items;
 private List<itemList>originalItems;
 private RecyclerItemClick itemClick;
-
-
 
     public AdapterProductos(List<itemList> items,RecyclerItemClick itemClick) {
         this.items = items;
@@ -46,9 +43,8 @@ private RecyclerItemClick itemClick;
     public void onBindViewHolder(@NonNull RecyclerHolder holder, int position) {
             final itemList item= items.get(position);
             holder.tvNombre.setText(item.getNombre());
-            holder.tvDescripcion.setText(item.getPresentacion());
-            holder.tvPrecio.setText(String.valueOf( item.getPrecioC()));
-            Picasso.get().load(R.drawable.images+item.getImagen());
+            holder.tvDescripcion.setText(item.getDescripcion());
+            holder.tvPrecio.setText(String.valueOf( item.getPrecio()));
 
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
