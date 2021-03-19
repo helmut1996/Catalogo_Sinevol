@@ -46,7 +46,7 @@ private String URL_IMAGE="http://ferreteriaelcarpintero.com/images/productos/";
             final itemList item= items.get(position);
             holder.tvNombre.setText(item.getNombre());
             holder.tvDescripcion.setText(item.getMarca());
-            holder.tvPrecio.setText(String.valueOf( item.getPrecioC()));
+            holder.tvPrecio.setText("C$"+String.valueOf( item.getPrecioC()));
             holder.tvimagen.setText(item.getPresentacion());
             holder.tvunidad_medida.setText(item.getUnidad_Med());
             holder.tvcodigo.setText(item.getCodigo());
@@ -103,18 +103,26 @@ private String URL_IMAGE="http://ferreteriaelcarpintero.com/images/productos/";
     }
     public static class RecyclerHolder extends RecyclerView.ViewHolder{
 
-        TextView tvNombre,tvDescripcion,tvPrecio,tvimagen,tvunidad_medida,tvcodigo,tvprecio_d,tvexistencia,tvestado;
+        TextView tvNombre,tvDescripcion,tvPrecio,tvPrecio2,tvPrecio3,tvPrecio4,tvPrecio5,tvimagen,tvunidad_medida,tvcodigo,tvprecio_d,tvprecio_d2,tvprecio_d3,tvprecio_d4,tvprecio_d5,tvexistencia,tvestado;
         ImageView image;
         public RecyclerHolder(@NonNull View itemView) {
             super(itemView);
             tvNombre=itemView.findViewById(R.id.NombreProducto);
             tvDescripcion=itemView.findViewById(R.id.Descripcion);
             tvPrecio=itemView.findViewById(R.id.precio);
+            tvPrecio2=itemView.findViewById(R.id.tvprecio2);
+            tvPrecio3=itemView.findViewById(R.id.tvprecio3);
+            tvPrecio4=itemView.findViewById(R.id.tvprecio4);
+            tvPrecio5=itemView.findViewById(R.id.tvprecio5);
             tvimagen=itemView.findViewById(R.id.textimagen);
             image=itemView.findViewById(R.id.imagen);
             tvunidad_medida=itemView.findViewById(R.id.unidad_medida);
             tvcodigo=itemView.findViewById(R.id.CodigoProducto);
             tvprecio_d=itemView.findViewById(R.id.precio_D);
+            tvprecio_d2=itemView.findViewById(R.id.tvprecioD2);
+            tvprecio_d3=itemView.findViewById(R.id.tvprecioD3);
+            tvprecio_d4=itemView.findViewById(R.id.tvprecioD4);
+            tvprecio_d5=itemView.findViewById(R.id.tvprecioD5);
             tvexistencia =itemView.findViewById(R.id.Existencia);
             tvestado=itemView.findViewById(R.id.Estado);
         }

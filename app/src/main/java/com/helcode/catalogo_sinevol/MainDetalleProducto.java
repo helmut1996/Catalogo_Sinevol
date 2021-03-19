@@ -17,6 +17,8 @@ import android.os.StrictMode;
 import android.telephony.PhoneNumberUtils;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,12 +31,12 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 
-public class MainDetalleProducto extends AppCompatActivity {
-private TextView NombreDetalle,Descripcion,Precio,codigo,PrecioD,Existencias,Estados;
+public class MainDetalleProducto extends AppCompatActivity  {
+
+private TextView NombreDetalle,Usuario,Descripcion,Precio,Precio2,Precio3,Precio4,Precio5,codigo,PrecioD,PrecioD2,PrecioD3,PrecioD4,PrecioD5,Existencias,Estados,Dolares;
 private PhotoView imageView;
 private itemList itemDatail;
 String imagen="http://ferreteriaelcarpintero.com/images/productos/";
-//String username=getFromSharedPreferences("username");
 
 
 
@@ -47,18 +49,30 @@ String imagen="http://ferreteriaelcarpintero.com/images/productos/";
 
         initView();
         initValues();
+        CargarUsuario();
 
     }
 
     public void initView(){
+    Usuario=findViewById(R.id.Usuarios);
     NombreDetalle=findViewById(R.id.NombreDetalle);
     Descripcion=findViewById(R.id.DescripcionDetalle);
+    Dolares=findViewById(R.id.textdolares);
     Precio=findViewById(R.id.PrecioDetalle);
+    Precio2=findViewById(R.id.Precio2Detalle);
+    Precio3=findViewById(R.id.Precio3Detalle);
+    Precio4=findViewById(R.id.Precio4Detalle);
+    Precio5=findViewById(R.id.Precio5Detalle);
+    PrecioD=findViewById(R.id.PrecioDolarDetalle);
+    PrecioD2=findViewById(R.id.PrecioDolar2Detalle);
+    PrecioD3=findViewById(R.id.PrecioDolar3Detalle);
+    PrecioD4=findViewById(R.id.PrecioDolar4Detalle);
+    PrecioD5=findViewById(R.id.PrecioDolar5Detalle);
     imageView = findViewById(R.id.imageDetalle);
     codigo=findViewById(R.id.TextImagen);
-    PrecioD=findViewById(R.id.PrecioDolarDetalle);
     Estados=findViewById(R.id.EstadoDetalle);
     Existencias=findViewById(R.id.ExistenciaDetalle);
+
     }
 
     public void initValues(){
@@ -70,8 +84,8 @@ String imagen="http://ferreteriaelcarpintero.com/images/productos/";
         codigo.setText(itemDatail.getCodigo());
         NombreDetalle.setText(itemDatail.getNombre());
         Descripcion.setText(itemDatail.getMarca());
-        Precio.setText(String.valueOf( itemDatail.getPrecioC()));
-        PrecioD.setText(String.valueOf( itemDatail.getPrecioD()));
+        Precio.setText("C$"+String.valueOf( itemDatail.getPrecioC()));
+        PrecioD.setText("$"+String.valueOf( itemDatail.getPrecioD()));
         Existencias.setText(String.valueOf(itemDatail.getExistencia()));
         Estados.setText(itemDatail.getEstado());
     }
@@ -126,12 +140,41 @@ String imagen="http://ferreteriaelcarpintero.com/images/productos/";
         _intencion.putExtra(Intent.EXTRA_TEXT, "Scientia Soluciones Informáticas - http://www.scientia.com.ar");
         startActivity(_intencion);
     }
-/*
-            private String getFromSharedPreferences(String key) {
+
+            private void CargarUsuario(){
                 SharedPreferences sharedPref=getSharedPreferences("login_preferences",Context.MODE_PRIVATE);
-                return sharedPref.getString(key,"");
+                String Users=sharedPref.getString("username","");
+                Usuario.setText(Users);
+
+                if (Usuario.getText().toString().isEmpty()){
+                    Existencias.setVisibility(View.GONE);
+                    Estados.setVisibility(View.GONE);
+                    Dolares.setVisibility(View.GONE);
+                    Precio2.setVisibility(View.GONE);
+                    Precio3.setVisibility(View.GONE);
+                    Precio4.setVisibility(View.GONE);
+                    Precio5.setVisibility(View.GONE);
+                    PrecioD.setVisibility(View.GONE);
+                    PrecioD2.setVisibility(View.GONE);
+                    PrecioD3.setVisibility(View.GONE);
+                    PrecioD4.setVisibility(View.GONE);
+                    PrecioD5.setVisibility(View.GONE);
+                }else {
+                    Existencias.setVisibility(View.VISIBLE);
+                    Estados.setVisibility(View.VISIBLE);
+                    Dolares.setVisibility(View.VISIBLE);
+                    Precio2.setVisibility(View.VISIBLE);
+                    Precio3.setVisibility(View.VISIBLE);
+                    Precio4.setVisibility(View.VISIBLE);
+                    Precio5.setVisibility(View.VISIBLE);
+                    PrecioD.setVisibility(View.VISIBLE);
+                    PrecioD2.setVisibility(View.VISIBLE);
+                    PrecioD3.setVisibility(View.VISIBLE);
+                    PrecioD4.setVisibility(View.VISIBLE);
+                    PrecioD5.setVisibility(View.VISIBLE);
+                }
             }
 
 
- */
+
 }

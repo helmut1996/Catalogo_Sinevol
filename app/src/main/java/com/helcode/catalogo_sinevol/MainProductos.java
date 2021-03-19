@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -58,11 +60,7 @@ private Retrofit retrofit;
         setContentView(R.layout.activity_main_productos);
 
 
-        Bundle extra = getIntent().getExtras();
-        if (extra != null) {
-            USERS = extra.getString("Usuario");
-           // prueba.setText(extra.getString("Usuario"));
-        }
+
             initView();
             initValues();
             initListenner();
@@ -72,7 +70,7 @@ private Retrofit retrofit;
 
     public void initView(){
 
-        prueba=findViewById(R.id.textprueba);
+        prueba=(TextView)findViewById(R.id.textprueba);
         vacio=findViewById(R.id.tv_emty);
         listproduct=findViewById(R.id.RecyclerProducto);
         svSearch=findViewById(R.id.Buscador);
@@ -95,6 +93,7 @@ private Retrofit retrofit;
     public void initListenner(){
         svSearch.setOnQueryTextListener(this);
     }
+
 /* public List<itemList> getItems(){
     List<itemList>itemLists=new ArrayList<>();
     itemLists.add(new itemList("cosmetico","descripcion",55.60,R.drawable.images));
@@ -166,6 +165,9 @@ public void getItemsSQL(){
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id= item.getItemId();
         if (id==R.id.exit){
+            SharedPreferences sharedPref=getSharedPreferences("login_preferences", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor =sharedPref.edit();
+            editor.clear().apply();
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
             finish();

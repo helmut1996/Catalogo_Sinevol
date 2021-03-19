@@ -85,18 +85,18 @@ para insertar Datos
     //                saveLoginSharedPrefences(username);
                     finish();
                     Intent intent = new Intent(getApplicationContext(), MainProductos.class);
-                    intent.putExtra("Usuario",username);
+                   // intent.putExtra("Usuario",username);
                     startActivity(intent);
                 }else if(username.equals("Vendedor") && password.equals("vendedor1")){
    //                  saveLoginSharedPrefences(username);
                     Intent intent = new Intent(getApplicationContext(), MainProductos.class);
-                    intent.putExtra("Usuario",username);
+                  //  intent.putExtra("Usuario",username);
                     startActivity(intent);
                     finish();
                 }else if(username.equals("Marlon") && password.equals("marlon1")){
-  //                    saveLoginSharedPrefences(username);
+                      saveLoginSharedPrefences(username);
                     Intent intent = new Intent(getApplicationContext(), MainProductos.class);
-                    intent.putExtra("Usuario",username);
+                    intent.putExtra("Usuario",password);
                     startActivity(intent);
                     finish();
                 } else{
@@ -108,16 +108,17 @@ para insertar Datos
         }
 
     }
-/*
+
     private void saveLoginSharedPrefences(String username) {
         SharedPreferences sharedPref=getSharedPreferences("login_preferences",Context.MODE_PRIVATE);
+
         SharedPreferences.Editor editor=sharedPref.edit();
         editor.putString("username",username);
-        editor.apply();
+        editor.commit();
     }
 
 
- */
+
 
 }
 
