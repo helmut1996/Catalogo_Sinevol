@@ -85,7 +85,15 @@ String imagen="http://ferreteriaelcarpintero.com/images/productos/";
         NombreDetalle.setText(itemDatail.getNombre());
         Descripcion.setText(itemDatail.getMarca());
         Precio.setText("C$"+String.valueOf( itemDatail.getPrecioC()));
+        Precio2.setText("C$"+String.valueOf( itemDatail.getPrecioC2()));
+        Precio3.setText("C$"+String.valueOf( itemDatail.getPrecioC3()));
+        Precio4.setText("C$"+String.valueOf( itemDatail.getPrecioC4()));
+        Precio5.setText("C$"+String.valueOf( itemDatail.getPrecioC5()));
         PrecioD.setText("$"+String.valueOf( itemDatail.getPrecioD()));
+        PrecioD2.setText("$"+String.valueOf( itemDatail.getPrecioD2()));
+        PrecioD3.setText("$"+String.valueOf( itemDatail.getPrecioD3()));
+        PrecioD4.setText("$"+String.valueOf( itemDatail.getPrecioD4()));
+        PrecioD5.setText("$"+String.valueOf( itemDatail.getPrecioD5()));
         Existencias.setText(String.valueOf(itemDatail.getExistencia()));
         Estados.setText(itemDatail.getEstado());
     }
@@ -174,7 +182,5 @@ String imagen="http://ferreteriaelcarpintero.com/images/productos/";
                     PrecioD5.setVisibility(View.VISIBLE);
                 }
             }
-
-
 
 }

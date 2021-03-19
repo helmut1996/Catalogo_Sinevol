@@ -1,6 +1,7 @@
 package com.helcode.catalogo_sinevol.adapter;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,12 +48,19 @@ private String URL_IMAGE="http://ferreteriaelcarpintero.com/images/productos/";
             holder.tvNombre.setText(item.getNombre());
             holder.tvDescripcion.setText(item.getMarca());
             holder.tvPrecio.setText("C$"+String.valueOf( item.getPrecioC()));
+            holder.tvPrecio2.setText("C$"+String.valueOf( item.getPrecioC2()));
+            holder.tvPrecio3.setText("C$"+String.valueOf( item.getPrecioC3()));
+            holder.tvPrecio4.setText("C$"+String.valueOf( item.getPrecioC4()));
+            holder.tvPrecio5.setText("C$"+String.valueOf( item.getPrecioC5()));
             holder.tvimagen.setText(item.getPresentacion());
             holder.tvunidad_medida.setText(item.getUnidad_Med());
             holder.tvcodigo.setText(item.getCodigo());
-            holder.tvexistencia.setText(String.valueOf(item.getExistencia()));
             holder.tvestado.setText(item.getEstado());
             holder.tvprecio_d.setText(String.valueOf(item.getPrecioD()));
+           holder.tvprecio_d2.setText(String.valueOf(item.getPrecioD2()));
+           holder.tvprecio_d3.setText(String.valueOf(item.getPrecioD3()));
+           holder.tvprecio_d4.setText(String.valueOf(item.getPrecioD4()));
+           holder.tvprecio_d5.setText(String.valueOf(item.getPrecioD5()));
             Picasso.get().load(URL_IMAGE+item.getImagen())
                     .error(R.drawable.error)
                     .into(holder.image);
@@ -66,6 +74,14 @@ private String URL_IMAGE="http://ferreteriaelcarpintero.com/images/productos/";
             }
         });
 
+               if (holder.tvexistencia.getText().toString()=="0"){
+                   holder.tvexistencia.setVisibility(View.VISIBLE);
+                   holder.tvexistencia.setText("No hay Existencia");
+
+               }else{
+                   holder.tvexistencia.setText(String.valueOf(item.getExistencia()));
+                   holder.tvexistencia.setVisibility(View.GONE);
+               }
             }
 
 
