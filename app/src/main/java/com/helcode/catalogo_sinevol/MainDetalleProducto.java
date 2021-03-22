@@ -36,7 +36,7 @@ public class MainDetalleProducto extends AppCompatActivity  {
 private TextView NombreDetalle,Usuario,Descripcion,Precio,Precio2,Precio3,Precio4,Precio5,codigo,PrecioD,PrecioD2,PrecioD3,PrecioD4,PrecioD5,Existencias,Estados,Dolares;
 private PhotoView imageView;
 private itemList itemDatail;
-String imagen="http://ferreteriaelcarpintero.com/images/productos/";
+String imagen="http://ferreteriaelcarpintero.com/images/carpintero/";
 
 
 
@@ -154,20 +154,10 @@ String imagen="http://ferreteriaelcarpintero.com/images/productos/";
                 String Users=sharedPref.getString("username","");
                 Usuario.setText(Users);
 
-                if (Usuario.getText().toString().isEmpty()){
-                    Existencias.setVisibility(View.GONE);
-                    Estados.setVisibility(View.GONE);
-                    Dolares.setVisibility(View.GONE);
-                    Precio2.setVisibility(View.GONE);
-                    Precio3.setVisibility(View.GONE);
-                    Precio4.setVisibility(View.GONE);
-                    Precio5.setVisibility(View.GONE);
-                    PrecioD.setVisibility(View.GONE);
-                    PrecioD2.setVisibility(View.GONE);
-                    PrecioD3.setVisibility(View.GONE);
-                    PrecioD4.setVisibility(View.GONE);
-                    PrecioD5.setVisibility(View.GONE);
-                }else {
+                if (Usuario.getText().toString().equals("Marlon")){
+
+
+
                     Existencias.setVisibility(View.VISIBLE);
                     Estados.setVisibility(View.VISIBLE);
                     Dolares.setVisibility(View.VISIBLE);
@@ -180,7 +170,35 @@ String imagen="http://ferreteriaelcarpintero.com/images/productos/";
                     PrecioD3.setVisibility(View.VISIBLE);
                     PrecioD4.setVisibility(View.VISIBLE);
                     PrecioD5.setVisibility(View.VISIBLE);
+                } else if (Usuario.getText().toString().equals("Facturacion")){
+                    Precio.setVisibility(View.GONE);
+                    Precio2.setVisibility(View.VISIBLE);
+                    Dolares.setVisibility(View.VISIBLE);
+                    PrecioD2.setVisibility(View.VISIBLE);
+
+                }else if (Usuario.getText().toString().equals("Vendedor")){
+                    Precio.setVisibility(View.GONE);
+                    Precio2.setVisibility(View.VISIBLE);
+                    Dolares.setVisibility(View.VISIBLE);
+                    PrecioD2.setVisibility(View.VISIBLE);
                 }
+
             }
 
+
+            /*
+                    Existencias.setVisibility(View.GONE);
+                    Estados.setVisibility(View.GONE);
+                    Dolares.setVisibility(View.GONE);
+                    Precio2.setVisibility(View.GONE);
+                    Precio3.setVisibility(View.GONE);
+                    Precio4.setVisibility(View.GONE);
+                    Precio5.setVisibility(View.GONE);
+                    PrecioD.setVisibility(View.GONE);
+                    PrecioD2.setVisibility(View.GONE);
+                    PrecioD3.setVisibility(View.GONE);
+                    PrecioD4.setVisibility(View.GONE);
+                    PrecioD5.setVisibility(View.GONE);
+
+                     */
 }

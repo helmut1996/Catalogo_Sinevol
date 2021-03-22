@@ -23,10 +23,11 @@ itemList  implements Serializable {
     private String Presentacion;
     private int Existencia;
     private String Estado;
+    private boolean isChecked = false;
     public itemList() {
     }
 
-    public itemList(String nombre, String marca, double precioC, double precioC2, double precioC3, double precioC4, double precioC5, double precioD, double precioD1, double precioD2, double precioD3, double precioD4, double precioD5, String imagen, String codigo, String unidad_Med, String presentacion, int existencia, String estado) {
+    public itemList(String nombre, String marca, double precioC, double precioC2, double precioC3, double precioC4, double precioC5, double precioD, double precioD1, double precioD2, double precioD3, double precioD4, double precioD5, String imagen, String codigo, String unidad_Med, String presentacion, int existencia, String estado, boolean isChecked) {
         Nombre = nombre;
         Marca = marca;
         PrecioC = precioC;
@@ -46,6 +47,7 @@ itemList  implements Serializable {
         Presentacion = presentacion;
         Existencia = existencia;
         Estado = estado;
+        this.isChecked = isChecked;
     }
 
     public String getNombre() {
@@ -198,5 +200,13 @@ itemList  implements Serializable {
 
     public void setEstado(String estado) {
         Estado = estado;
+    }
+
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean checked) {
+        isChecked = checked;
     }
 }

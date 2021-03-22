@@ -81,8 +81,8 @@ para insertar Datos
                     Toast.makeText(this,R.string.value_user,Toast.LENGTH_SHORT).show();
                 }else if (passw.getText().toString().isEmpty()){
                     Toast.makeText(this,R.string.value_pass_isemty,Toast.LENGTH_SHORT).show();
-                }else if(username.equals("Facturacion") && password.equals("prueba1")){
-    //                saveLoginSharedPrefences(username);
+                }else if(username.equals("Facturacion") && password.equals("fact1")){
+                    saveLoginSharedPrefences(username);
                     finish();
                     Intent intent = new Intent(getApplicationContext(), MainProductos.class);
                    // intent.putExtra("Usuario",username);

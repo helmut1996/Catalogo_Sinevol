@@ -3,9 +3,11 @@ package com.helcode.catalogo_sinevol.adapter;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
+import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,13 +28,16 @@ public class AdapterProductos extends RecyclerView.Adapter<AdapterProductos.Recy
 private List<itemList> items;
 private List<itemList>originalItems;
 private RecyclerItemClick itemClick;
-private String URL_IMAGE="http://ferreteriaelcarpintero.com/images/productos/";
+    private boolean modoSeleccion;
+    private SparseBooleanArray seleccionados;
+private String URL_IMAGE="http://ferreteriaelcarpintero.com/images/carpintero/";
 
     public AdapterProductos(List<itemList> items,RecyclerItemClick itemClick) {
         this.items = items;
         this.itemClick=itemClick;
         this.originalItems=new ArrayList<>();
         originalItems.addAll(items);
+        seleccionados = new SparseBooleanArray();
     }
 
     @NonNull
@@ -65,7 +70,14 @@ private String URL_IMAGE="http://ferreteriaelcarpintero.com/images/productos/";
                     .error(R.drawable.error)
                     .into(holder.image);
 
+        if (holder.tvexistencia.getText().toString().equals("0")){
+            holder.tvexistencia.setVisibility(View.VISIBLE);
+            holder.tvexistencia.setText("No hay Existencia");
 
+        }else{
+            holder.tvexistencia.setText(String.valueOf(item.getExistencia()));
+            holder.tvexistencia.setVisibility(View.GONE);
+        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,14 +86,8 @@ private String URL_IMAGE="http://ferreteriaelcarpintero.com/images/productos/";
             }
         });
 
-               if (holder.tvexistencia.getText().toString()=="0"){
-                   holder.tvexistencia.setVisibility(View.VISIBLE);
-                   holder.tvexistencia.setText("No hay Existencia");
 
-               }else{
-                   holder.tvexistencia.setText(String.valueOf(item.getExistencia()));
-                   holder.tvexistencia.setVisibility(View.GONE);
-               }
+
             }
 
 
@@ -109,7 +115,7 @@ private String URL_IMAGE="http://ferreteriaelcarpintero.com/images/productos/";
                 else {
                     items.clear();
                     for (itemList i: originalItems){
-                        if (i.getNombre().toLowerCase().contains(strSeach)){
+                        if (i.getMarca().toLowerCase().contains(strSeach) || i.getNombre().toLowerCase().contains(strSeach) || i.getCodigo().toLowerCase().contains(strSeach)){
                             items.add(i);
                         }
                     }
@@ -121,6 +127,7 @@ private String URL_IMAGE="http://ferreteriaelcarpintero.com/images/productos/";
 
         TextView tvNombre,tvDescripcion,tvPrecio,tvPrecio2,tvPrecio3,tvPrecio4,tvPrecio5,tvimagen,tvunidad_medida,tvcodigo,tvprecio_d,tvprecio_d2,tvprecio_d3,tvprecio_d4,tvprecio_d5,tvexistencia,tvestado;
         ImageView image;
+       public static CheckBox check;
         public RecyclerHolder(@NonNull View itemView) {
             super(itemView);
             tvNombre=itemView.findViewById(R.id.NombreProducto);
@@ -141,6 +148,7 @@ private String URL_IMAGE="http://ferreteriaelcarpintero.com/images/productos/";
             tvprecio_d5=itemView.findViewById(R.id.tvprecioD5);
             tvexistencia =itemView.findViewById(R.id.Existencia);
             tvestado=itemView.findViewById(R.id.Estado);
+            check=itemView.findViewById(R.id.check);
         }
     }
 

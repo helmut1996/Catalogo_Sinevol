@@ -31,6 +31,7 @@ import com.helcode.catalogo_sinevol.API.InterfaceAPI;
 import com.helcode.catalogo_sinevol.adapter.AdapterProductos;
 
 import com.helcode.catalogo_sinevol.model.itemList;
+import com.michaelflisar.dragselectrecyclerview.DragSelectionProcessor;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -42,6 +43,8 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static com.helcode.catalogo_sinevol.adapter.AdapterProductos.RecyclerHolder.check;
+
 public class MainProductos extends AppCompatActivity implements AdapterProductos.RecyclerItemClick, SearchView.OnQueryTextListener {
 RecyclerView listproduct;
 SearchView svSearch;
@@ -49,9 +52,10 @@ List<itemList>items;
 TextView prueba,vacio;
 AdapterProductos adapterProductos;
 ImageButton btn_buscador;
+Button btncompartir;
 private InterfaceAPI api;
 
-public static  String USERS;
+
 private Retrofit retrofit;
 
     @Override
@@ -65,16 +69,23 @@ private Retrofit retrofit;
             initValues();
             initListenner();
 
+            btncompartir.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
     }
 
 
     public void initView(){
 
-        prueba=(TextView)findViewById(R.id.textprueba);
+       // prueba=(TextView)findViewById(R.id.textprueba);
         vacio=findViewById(R.id.tv_emty);
         listproduct=findViewById(R.id.RecyclerProducto);
         svSearch=findViewById(R.id.Buscador);
         btn_buscador=findViewById(R.id.button);
+        btncompartir=findViewById(R.id.btn_compartir);
 
     }
 
@@ -82,35 +93,15 @@ private Retrofit retrofit;
         api= APIClient.getProductos();
         LinearLayoutManager manager = new LinearLayoutManager(this);
         listproduct.setLayoutManager(manager);
-
-       // items= getItems();
-
-       // adapterProductos= new AdapterProductos(items,this);
-        //listproduct.setAdapter(adapterProductos);
         getItemsSQL();
+
+
     }
 
     public void initListenner(){
         svSearch.setOnQueryTextListener(this);
     }
 
-/* public List<itemList> getItems(){
-    List<itemList>itemLists=new ArrayList<>();
-    itemLists.add(new itemList("cosmetico","descripcion",55.60,R.drawable.images));
-    itemLists.add(new itemList("lapiz de ceja ","descripcion",55.60,R.drawable.images));
-    itemLists.add(new itemList("oso de peluche","descripcion",55.60,R.drawable.images));
-    itemLists.add(new itemList("lapiz de ceja ","descripcion",55.60,R.drawable.images));
-    itemLists.add(new itemList("lapiz de ceja ","descripcion",55.60,R.drawable.images));
-    itemLists.add(new itemList("tinte kool ","descripcion",55.60,R.drawable.images));
-    itemLists.add(new itemList("tinte kool","descripcion",55.60,R.drawable.images));
-    itemLists.add(new itemList("boby azul","descripcion",55.60,R.drawable.images));
-    itemLists.add(new itemList("tinte kool ","descripcion",55.60,R.drawable.images));
-    itemLists.add(new itemList("tinte kool","descripcion",55.60,R.drawable.images));
-    itemLists.add(new itemList("boby azul","descripcion",55.60,R.drawable.images));
-
-    return  itemLists;
-
-    } */
 
 
 public void getItemsSQL(){
@@ -171,6 +162,8 @@ public void getItemsSQL(){
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
             finish();
+        }else if (id==R.id.selected){
+            btncompartir.setVisibility(View.VISIBLE);
         }
         return true;
     }

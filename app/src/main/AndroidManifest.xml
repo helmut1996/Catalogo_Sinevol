@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Catalogo_SINEVOL">
-        <activity android:name=".MainRegistrar"></activity>
+        <activity android:name=".MainGaleria"></activity>
+        <activity android:name=".MainRegistrar" />
         <activity android:name=".MainEmail" />
         <activity android:name=".MainDetalleProducto" />
         <activity android:name=".MainProductos" />
@@ -29,16 +30,15 @@
             </intent-filter>
         </activity>
 
-
         <meta-data
             android:name="DATABASE"
-            android:value="catalogos_sinevol.db"/>
+            android:value="catalogos_sinevol.db" />
         <meta-data
             android:name="VERSION"
-            android:value="1"/>
+            android:value="1" />
         <meta-data
             android:name="QUERY_LOG"
-            android:value="true"/>
+            android:value="true" />
     </application>
 
 </manifest>
