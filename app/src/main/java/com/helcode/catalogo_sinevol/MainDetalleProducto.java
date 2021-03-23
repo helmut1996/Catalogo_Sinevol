@@ -84,16 +84,16 @@ String imagen="http://ferreteriaelcarpintero.com/images/carpintero/";
         codigo.setText(itemDatail.getCodigo());
         NombreDetalle.setText(itemDatail.getNombre());
         Descripcion.setText(itemDatail.getMarca());
-        Precio.setText("C$"+String.valueOf( itemDatail.getPrecioC()));
-        Precio2.setText("C$"+String.valueOf( itemDatail.getPrecioC2()));
-        Precio3.setText("C$"+String.valueOf( itemDatail.getPrecioC3()));
-        Precio4.setText("C$"+String.valueOf( itemDatail.getPrecioC4()));
-        Precio5.setText("C$"+String.valueOf( itemDatail.getPrecioC5()));
-        PrecioD.setText("$"+String.valueOf( itemDatail.getPrecioD()));
-        PrecioD2.setText("$"+String.valueOf( itemDatail.getPrecioD2()));
-        PrecioD3.setText("$"+String.valueOf( itemDatail.getPrecioD3()));
-        PrecioD4.setText("$"+String.valueOf( itemDatail.getPrecioD4()));
-        PrecioD5.setText("$"+String.valueOf( itemDatail.getPrecioD5()));
+        Precio.setText("P1: "+ "C$"+String.valueOf(String.format("%,.2f",itemDatail.getPrecioC())));
+        Precio2.setText("P2: "+"C$"+String.valueOf(String.format("%,.2f", itemDatail.getPrecioC2())));
+        Precio3.setText("P3: "+"C$"+String.valueOf(String.format("%,.2f",itemDatail.getPrecioC3())));
+        Precio4.setText("P4:"+"C$"+String.valueOf(String.format("%,.2f",itemDatail.getPrecioC4())));
+        Precio5.setText("P5: "+"C$"+String.valueOf(String.format("%,.2f",itemDatail.getPrecioC5())));
+        PrecioD.setText("PD1: "+"$"+String.valueOf(String.format("%,.2f",itemDatail.getPrecioD())));
+        PrecioD2.setText("PD2: "+"$"+String.valueOf(String.format("%,.2f",itemDatail.getPrecioD2())));
+        PrecioD3.setText("PD3: "+"$"+String.valueOf(String.format("%,.2f",itemDatail.getPrecioD3())));
+        PrecioD4.setText("PD4: "+"$"+String.valueOf(String.format("%,.2f",itemDatail.getPrecioD4())));
+        PrecioD5.setText("PD5: "+"$"+String.valueOf(String.format("%,.2f",itemDatail.getPrecioD5())));
         Existencias.setText(String.valueOf(itemDatail.getExistencia()));
         Estados.setText(itemDatail.getEstado());
     }
@@ -175,30 +175,26 @@ String imagen="http://ferreteriaelcarpintero.com/images/carpintero/";
                     Precio2.setVisibility(View.VISIBLE);
                     Dolares.setVisibility(View.VISIBLE);
                     PrecioD2.setVisibility(View.VISIBLE);
+                    Precio3.setVisibility(View.VISIBLE);
+                    Precio4.setVisibility(View.VISIBLE);
+                    Precio5.setVisibility(View.VISIBLE);
+                    PrecioD3.setVisibility(View.VISIBLE);
+                    PrecioD4.setVisibility(View.VISIBLE);
+                    PrecioD5.setVisibility(View.VISIBLE);
 
                 }else if (Usuario.getText().toString().equals("Vendedor")){
                     Precio.setVisibility(View.GONE);
                     Precio2.setVisibility(View.VISIBLE);
                     Dolares.setVisibility(View.VISIBLE);
                     PrecioD2.setVisibility(View.VISIBLE);
+                    Precio3.setVisibility(View.VISIBLE);
+                    Precio4.setVisibility(View.VISIBLE);
+                    Precio5.setVisibility(View.VISIBLE);
+                    PrecioD3.setVisibility(View.VISIBLE);
+                    PrecioD4.setVisibility(View.VISIBLE);
+                    PrecioD5.setVisibility(View.VISIBLE);
                 }
 
             }
 
-
-            /*
-                    Existencias.setVisibility(View.GONE);
-                    Estados.setVisibility(View.GONE);
-                    Dolares.setVisibility(View.GONE);
-                    Precio2.setVisibility(View.GONE);
-                    Precio3.setVisibility(View.GONE);
-                    Precio4.setVisibility(View.GONE);
-                    Precio5.setVisibility(View.GONE);
-                    PrecioD.setVisibility(View.GONE);
-                    PrecioD2.setVisibility(View.GONE);
-                    PrecioD3.setVisibility(View.GONE);
-                    PrecioD4.setVisibility(View.GONE);
-                    PrecioD5.setVisibility(View.GONE);
-
-                     */
 }

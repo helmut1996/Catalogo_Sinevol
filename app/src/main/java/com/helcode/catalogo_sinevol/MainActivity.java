@@ -69,6 +69,9 @@ para insertar Datos
     Usuarios.find(Usuarios.class, "nombre_usuario = ? and password = ?", user.getSelectedItem().toString(), passw.getText().toString());
 
 } */
+
+
+
     @Override
     public void onClick(View view) {
 
@@ -81,23 +84,22 @@ para insertar Datos
                     Toast.makeText(this,R.string.value_user,Toast.LENGTH_SHORT).show();
                 }else if (passw.getText().toString().isEmpty()){
                     Toast.makeText(this,R.string.value_pass_isemty,Toast.LENGTH_SHORT).show();
-                }else if(username.equals("Facturacion") && password.equals("fact1")){
+                }else if(username.equals("Facturacion") && password.equals("facturacion")){
                     saveLoginSharedPrefences(username);
                     finish();
                     Intent intent = new Intent(getApplicationContext(), MainProductos.class);
-                   // intent.putExtra("Usuario",username);
+
                     startActivity(intent);
-                }else if(username.equals("Vendedor") && password.equals("vendedor1")){
-   //                  saveLoginSharedPrefences(username);
+                }else if(username.equals("Vendedor") && password.equals("vendedor")){
+
                     Intent intent = new Intent(getApplicationContext(), MainProductos.class);
-                  //  intent.putExtra("Usuario",username);
+
                     startActivity(intent);
                     finish();
-                }else if(username.equals("Marlon") && password.equals("marlon1")){
+                }else if(username.equals("Marlon") && password.equals("carpintero")){
                       saveLoginSharedPrefences(username);
                     Intent intent = new Intent(getApplicationContext(), MainProductos.class);
-                    intent.putExtra("Usuario",password);
-                    startActivity(intent);
+                     startActivity(intent);
                     finish();
                 } else{
                     Toast.makeText(this,R.string.mensaje,Toast.LENGTH_SHORT).show();

@@ -32,6 +32,8 @@ private RecyclerItemClick itemClick;
     private SparseBooleanArray seleccionados;
 private String URL_IMAGE="http://ferreteriaelcarpintero.com/images/carpintero/";
 
+private int cantidad;
+
     public AdapterProductos(List<itemList> items,RecyclerItemClick itemClick) {
         this.items = items;
         this.itemClick=itemClick;
@@ -61,6 +63,7 @@ private String URL_IMAGE="http://ferreteriaelcarpintero.com/images/carpintero/";
             holder.tvunidad_medida.setText(item.getUnidad_Med());
             holder.tvcodigo.setText(item.getCodigo());
             holder.tvestado.setText(item.getEstado());
+            holder.tvexistencia.setText(String.valueOf(item.getExistencia()));
             holder.tvprecio_d.setText(String.valueOf(item.getPrecioD()));
            holder.tvprecio_d2.setText(String.valueOf(item.getPrecioD2()));
            holder.tvprecio_d3.setText(String.valueOf(item.getPrecioD3()));
