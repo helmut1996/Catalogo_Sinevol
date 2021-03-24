@@ -91,7 +91,7 @@ para insertar Datos
 
                     startActivity(intent);
                 }else if(username.equals("Vendedor") && password.equals("vendedor")){
-
+                    saveLoginSharedPrefences(username);
                     Intent intent = new Intent(getApplicationContext(), MainProductos.class);
 
                     startActivity(intent);
