@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/background_of_ui">
+    android:background="@color/primary">
 
     <TextView
         android:id="@+id/textView"
@@ -17,7 +17,7 @@
         android:layout_marginBottom="5dp"
         android:gravity="center"
         android:text="LOGIN"
-        android:textColor="#fff"
+        android:textColor="#000"
         android:textSize="26sp"
         android:typeface="sans"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,7 +32,7 @@
         android:layout_width="351dp"
         android:layout_height="433dp"
         android:layout_marginTop="40dp"
-        android:background="#2F0FFFFF"
+        android:background="#610FFFFF"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,6 +67,7 @@
                 android:backgroundTint="@color/white"
                 android:hint="Usuer"
                 android:textColor="@color/white"
+                android:background="#57FFFFFF"
                 android:textColorHint="@color/white" />
 
 
