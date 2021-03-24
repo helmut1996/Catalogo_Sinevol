@@ -20,9 +20,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.SearchView;
+import android.widget.Spinner;
+import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,6 +56,7 @@ TextView prueba,vacio;
 AdapterProductos adapterProductos;
 ImageButton btn_buscador;
 Button btncompartir;
+Spinner BuscadorMarca;
 private InterfaceAPI api;
 
 
@@ -69,12 +73,11 @@ private Retrofit retrofit;
             initValues();
             initListenner();
 
-            btncompartir.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
 
-                }
-            });
+        //esta funcion se utiliza para la lista de usuarios
+        ArrayAdapter<CharSequence> adapter1 = ArrayAdapter.createFromResource(this, R.array.User, android.R.layout.simple_spinner_item);
+        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        BuscadorMarca.setAdapter(adapter1);
     }
 
 
@@ -86,6 +89,7 @@ private Retrofit retrofit;
         svSearch=findViewById(R.id.Buscador);
         btn_buscador=findViewById(R.id.button);
         btncompartir=findViewById(R.id.btn_compartir);
+        BuscadorMarca=findViewById(R.id.BuscadorSpinner);
 
     }
 

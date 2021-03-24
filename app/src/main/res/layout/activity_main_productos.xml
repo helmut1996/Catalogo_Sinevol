@@ -25,19 +25,20 @@
 
     <SearchView
         android:id="@+id/Buscador"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:iconifiedByDefault="false"
         android:queryHint="Buscar Producto"
-        android:background="@drawable/bg_round"/>
+        android:background="@drawable/bg_round"
+        android:layout_weight="1"/>
 
 
     <ImageButton
         android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="match_parent"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
@@ -45,6 +46,12 @@
         android:layout_weight="1"
         android:background="#8BC34A"
        android:src="@drawable/ic_search" />
+
+        <Spinner
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:id="@+id/BuscadorSpinner"
+            android:layout_weight="1"/>
 
 </LinearLayout>
 
