@@ -30,7 +30,7 @@ private List<itemList>originalItems;
 private RecyclerItemClick itemClick;
     private boolean modoSeleccion;
     private SparseBooleanArray seleccionados;
-private String URL_IMAGE="http://ferreteriaelcarpintero.com/images/carpintero/";
+private String URL_IMAGE="http://ferreteriaelcarpintero.com/images/productos/";
 
 private int cantidad;
 

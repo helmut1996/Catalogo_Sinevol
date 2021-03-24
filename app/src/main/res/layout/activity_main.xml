@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/background_of_ui">
+    android:background="@drawable/logo">
 
     <TextView
         android:id="@+id/textView"
@@ -32,7 +32,7 @@
         android:layout_width="351dp"
         android:layout_height="433dp"
         android:layout_marginTop="40dp"
-        android:background="#2F0FFFFF"
+        android:background="#9A871E42"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,8 +91,8 @@
                 android:backgroundTint="@color/black"
                 android:hint="pass"
                 android:inputType="textPassword"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
                 />
 
         </LinearLayout>
@@ -104,7 +104,7 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="50dp"
             android:layout_marginRight="15dp"
-            android:background="#CDDC39"
+            android:background="#BFE91E63"
             android:text="iniciar sesion" />
 
 

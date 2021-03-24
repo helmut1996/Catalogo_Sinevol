@@ -2,12 +2,12 @@
     <!-- Base application theme. -->
     <style name="Theme.Catalogo_SINEVOL" parent="Theme.MaterialComponents.DayNight.DarkActionBar.Bridge">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryVariant">@color/primary_dark</item>
-        <item name="colorOnPrimary">@color/primary_light</item>
+        <item name="colorPrimary">@color/primary2</item>
+        <item name="colorPrimaryVariant">@color/primary_dark2</item>
+        <item name="colorOnPrimary">@color/primary_light2</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/primary_text</item>
-        <item name="colorSecondaryVariant">@color/secondary_text</item>
+        <item name="colorSecondary">@color/primary_text2</item>
+        <item name="colorSecondaryVariant">@color/secondary_text2</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>

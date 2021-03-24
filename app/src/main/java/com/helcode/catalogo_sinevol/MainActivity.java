@@ -91,12 +91,12 @@ para insertar Datos
 
                     startActivity(intent);
                 }else if(username.equals("Vendedor") && password.equals("vendedor")){
-
+                    saveLoginSharedPrefences(username);
                     Intent intent = new Intent(getApplicationContext(), MainProductos.class);
 
                     startActivity(intent);
                     finish();
-                }else if(username.equals("Marlon") && password.equals("carpintero")){
+                }else if(username.equals("Marlon") && password.equals("cosmeticos")){
                       saveLoginSharedPrefences(username);
                     Intent intent = new Intent(getApplicationContext(), MainProductos.class);
                      startActivity(intent);

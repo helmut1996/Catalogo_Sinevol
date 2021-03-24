@@ -36,9 +36,7 @@ public class MainDetalleProducto extends AppCompatActivity  {
 private TextView NombreDetalle,Usuario,Descripcion,Precio,Precio2,Precio3,Precio4,Precio5,codigo,PrecioD,PrecioD2,PrecioD3,PrecioD4,PrecioD5,Existencias,Estados,Dolares;
 private PhotoView imageView;
 private itemList itemDatail;
-String imagen="http://ferreteriaelcarpintero.com/images/carpintero/";
-
-
+String imagen="http://ferreteriaelcarpintero.com/images/productos/";
 
             @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +108,7 @@ String imagen="http://ferreteriaelcarpintero.com/images/carpintero/";
         if (id==R.id.share){
           CompartirImagen();
         }else if(id==R.id.email){
-            Lanzarwhatsapp("86338407");
+            Lanzarwhatsapp("88525454");
         }
         return true;
     }

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ferreteria Carpintero</string>
+    <string name="app_name">Cosmeticos</string>
 
     <string-array name="User">
         <item>Seleccione usuario</item>
