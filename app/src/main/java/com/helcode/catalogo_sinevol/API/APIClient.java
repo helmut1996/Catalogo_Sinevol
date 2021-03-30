@@ -1,5 +1,8 @@
 package com.helcode.catalogo_sinevol.API;
 
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -7,12 +10,19 @@ public class APIClient {
     public static final String  BASE_URL="https://elcarpintero.herokuapp.com/api/";
     public static Retrofit retrofit;
 
+
     public static InterfaceAPI getProductos(){
 
         if (retrofit==null){
+
+            OkHttpClient client =new OkHttpClient.Builder()
+                    .connectTimeout(5, TimeUnit.MINUTES)
+                    .readTimeout(5,TimeUnit.MINUTES)
+                    .writeTimeout(5,TimeUnit.MINUTES).build();
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
+                    .client(client)
                     .build();
 
 

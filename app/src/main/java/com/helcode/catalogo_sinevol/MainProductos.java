@@ -146,7 +146,6 @@ public void getItemsSQL(){
             }
         });
 
-
         return false;
     }
 
