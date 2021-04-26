@@ -48,12 +48,13 @@
        android:src="@drawable/ic_search" />
 
         <Spinner
+            android:id="@+id/BuscadorSpinner"
             android:layout_width="150dp"
             android:layout_height="match_parent"
-            android:id="@+id/BuscadorSpinner"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:visibility="gone"/>
 
-</LinearLayout>
+    </LinearLayout>
 
     <TextView
         android:layout_width="match_parent"
